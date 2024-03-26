@@ -1,1 +1,13 @@
+name: Build and push backend application
 
+on:
+  push:
+    branches:
+    - main
+    - dev
+
+jobs:
+  test1:
+    name: prod
+    runs-on: self-hosted
+    
