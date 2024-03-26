@@ -23,8 +23,8 @@ jobs:
           docker push priyankatuladhar/backend-git-action:stable
           docker push priyankatuladhar/backend-git-action:$(git rev-parse --short "$GITHUB_SHA")
 
-      - name: Increase package.json version
-        uses: stefanzweifel/npm-version-action@v4
+     # - name: Increase package.json version
+      #  uses: stefanzweifel/npm-version-action@v4
 
       - name: Commit version increase
         run: |
