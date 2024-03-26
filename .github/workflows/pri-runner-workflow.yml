@@ -26,12 +26,22 @@ jobs:
      # - name: Increase package.json version
       #  uses: stefanzweifel/npm-version-action@v4
 
-      - name: Commit version increase
+     # - name: Commit version increase
+       # run: |
+        #  npm version patch
+        #  git add package.json
+         # git commit -m "Increase package.json version"
+         # git push --follow-tags
+
+      - name: Package.json version
         run: |
-          npm version patch
+          git config --global user.name 'priyanka'
+          git config --global user.email 'priyankatuladhar14@gmail.com'
+          git pull
+          npm version patch --no-git-tag-version
           git add package.json
-          git commit -m "Increase package.json version"
-          git push --follow-tags
+          git commit -m "Increase package.json version and push"
+          git push https://${{ secrets.PAT_TOKEN }}@github.com/priyankatuladhar/git-actions-pri
   dev:
     name: DEV ENV
     runs-on: self-hosted
